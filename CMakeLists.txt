@@ -10,6 +10,6 @@ project(HelloWorld CXX)
 
 find_package(fmt CONFIG REQUIRED)
 
-add_executable(HelloWorld main.cpp)
+add_executable(HelloWorld src/main.cpp)
 
 target_link_libraries(HelloWorld PRIVATE fmt::fmt)
