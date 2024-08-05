@@ -1,5 +1,6 @@
 
 build
+.cache
 
 # CMake
 CMakeLists.txt.user
