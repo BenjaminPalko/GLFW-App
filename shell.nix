@@ -5,6 +5,7 @@ pkgs.llvmPackages.stdenv.mkDerivation {
 
   name = "Development";
   buildInputs = with pkgs.buildPackages; [
+    fmt
     glfw-wayland
     libglvnd
     libglvnd.dev
