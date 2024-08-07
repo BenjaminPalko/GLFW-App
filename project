@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cmd=$1
+
+case $cmd in
+--clean) rm -rf build .cache ;;
+--cmake) cmake -B build -S . -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ;;
+--build) cmake --build build ;;
+*) echo "Unrecognized command" ;;
+esac
