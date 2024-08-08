@@ -7,8 +7,8 @@ pkgs.llvmPackages.stdenv.mkDerivation {
   buildInputs = with pkgs.buildPackages; [
     fmt
     glfw-wayland
-    libglvnd
-    libglvnd.dev
+    libGL
+    libGL.dev
   ];
   # nativeBuildInputs is usually what you want -- tools you need to run
   nativeBuildInputs = with pkgs.buildPackages; [
