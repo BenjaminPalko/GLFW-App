@@ -5,6 +5,7 @@ pkgs.llvmPackages.stdenv.mkDerivation {
 
   name = "Development";
   buildInputs = with pkgs.buildPackages; [
+    clang
     fmt
     fmt.dev
     glfw-wayland
@@ -16,7 +17,6 @@ pkgs.llvmPackages.stdenv.mkDerivation {
     meson
     ninja
     gnumake
-    clang
     clang-tools
     pkg-config
   ];
