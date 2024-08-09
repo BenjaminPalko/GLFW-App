@@ -6,4 +6,6 @@ deps += dependency('fmt')
 deps += dependency('glfw3')
 deps += dependency('gl')
 
-executable('main', 'src/main.cpp', dependencies : deps)
+subdir('src')
+
+executable('main', sources, dependencies : deps)
