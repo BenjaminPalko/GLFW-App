@@ -2,7 +2,7 @@
 #include <fmt/core.h>
 
 void error_callback(int error_code, const char *description) {
-  fmt::print("[ERROR - {}] {}", error_code, *description);
+  fmt::print("[ERROR - {}] {}\n", error_code, description);
 }
 
 void key_callback(GLFWwindow *window, int key, int scancode, int action,
@@ -14,6 +14,8 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action,
 }
 
 int main() {
+
+  glfwSetErrorCallback(error_callback);
 
   int supported = glfwPlatformSupported(GLFW_PLATFORM_WAYLAND);
   fmt::print("Wayland support: {}\n", supported == GLFW_TRUE);
@@ -32,7 +34,6 @@ int main() {
     return -1;
   }
 
-  glfwSetErrorCallback(error_callback);
   glfwSetKeyCallback(window, key_callback);
   glfwMakeContextCurrent(window);
   glClearColor(0.4f, 0.3f, 0.4f, 0.0f);
