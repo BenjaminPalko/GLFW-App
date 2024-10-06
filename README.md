@@ -9,5 +9,5 @@ meson setup build
 ### Build
 
 ```shell
-meson compile
+meson compile -C build
 ```
