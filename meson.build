@@ -1,4 +1,3 @@
-
 project('test', 'cpp')
 
 deps = []
@@ -11,4 +10,4 @@ directories = include_directories('libs')
 
 subdir('src')
 
-executable('main', sources, dependencies : deps, include_directories: directories)
+executable('main', sources, dependencies: deps, include_directories: directories)
