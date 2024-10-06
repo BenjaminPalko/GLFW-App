@@ -3,11 +3,11 @@
 ### Setup
 
 ```shell
-mason setup build
+meson setup build
 ```
 
 ### Build
 
 ```shell
-mason compile
+meson compile
 ```
