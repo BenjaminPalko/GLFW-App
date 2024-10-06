@@ -34,17 +34,17 @@ ShaderSystem::ShaderSystem() {
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
   glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-  vertex_shader = glCreateShader(GL_VERTEX_SHADER);
-  glShaderSource(vertex_shader, 1, &vertex_shader_text, NULL);
-  glCompileShader(vertex_shader);
+  VertexShader vertex_shader = VertexShader();
+  vertex_shader.SetSource(vertex_shader_text);
+  vertex_shader.Compile();
 
-  fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
-  glShaderSource(fragment_shader, 1, &fragment_shader_text, NULL);
-  glCompileShader(fragment_shader);
+  FragmentShader fragment_shader = FragmentShader();
+  fragment_shader.SetSource(fragment_shader_text);
+  fragment_shader.Compile();
 
   program = glCreateProgram();
-  glAttachShader(program, vertex_shader);
-  glAttachShader(program, fragment_shader);
+  vertex_shader.Attach(program);
+  fragment_shader.Attach(program);
   glLinkProgram(program);
 
   mvp_location = glGetUniformLocation(program, "MVP");
@@ -79,3 +79,11 @@ int ShaderSystem::Draw(int width, int height, float time) {
   glDrawArrays(GL_TRIANGLES, 0, 3);
   return 0;
 }
+
+void Shader::SetSource(const char *source) {
+  glShaderSource(shader, 1, &source, NULL);
+}
+void Shader::Compile() { glCompileShader(shader); }
+void Shader::Attach(GLuint program) { glAttachShader(program, shader); }
+VertexShader::VertexShader() : Shader(glCreateShader(GL_VERTEX_SHADER)) {}
+FragmentShader::FragmentShader() : Shader(glCreateShader(GL_FRAGMENT_SHADER)) {}
