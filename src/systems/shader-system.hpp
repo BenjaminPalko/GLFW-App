@@ -1,5 +1,6 @@
 #include <GL/glew.h>
 #include <linmath.h>
+#include <string>
 
 class ShaderSystem {
   GLuint vertex_buffer;
@@ -12,6 +13,7 @@ class ShaderSystem {
 public:
   ShaderSystem();
   int Draw(int width, int height, float time);
+  GLuint *CreateBuffer();
 };
 
 class Shader {
@@ -22,6 +24,7 @@ protected:
   GLuint shader;
 
 public:
+  void SetSource(std::string source);
   void SetSource(const char *source);
   void Compile();
   void Attach(GLuint program);

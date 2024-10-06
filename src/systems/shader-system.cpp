@@ -9,25 +9,28 @@ static const Vertex vertices[3] = {{{-0.6f, -0.4f}, {1.f, 0.f, 0.f}},
                                    {{0.6f, -0.4f}, {0.f, 1.f, 0.f}},
                                    {{0.f, 0.6f}, {0.f, 0.f, 1.f}}};
 
-static const char *vertex_shader_text =
-    "#version 330\n"
-    "uniform mat4 MVP;\n"
-    "in vec3 vCol;\n"
-    "in vec2 vPos;\n"
-    "out vec3 color;\n"
-    "void main()\n"
-    "{\n"
-    "    gl_Position = MVP * vec4(vPos, 0.0, 1.0);\n"
-    "    color = vCol;\n"
-    "}\n";
+static const std::string vertex_shader_text = R"(
+  #version 330
+  uniform mat4 MVP;
+  in vec3 vCol;
+  in vec2 vPos;
+  out vec3 color;
+  void main()
+  {
+    gl_Position = MVP * vec4(vPos, 0.0, 1.0);
+    color = vCol;
+  }
+)";
 
-static const char *fragment_shader_text = "#version 330\n"
-                                          "in vec3 color;\n"
-                                          "out vec4 fragment;\n"
-                                          "void main()\n"
-                                          "{\n"
-                                          "    fragment = vec4(color, 1.0);\n"
-                                          "}\n";
+static const std::string fragment_shader_text = R"(
+  #version 330
+  in vec3 color;
+  out vec4 fragment;
+  void main()
+  {
+    fragment = vec4(color, 1.0);
+  }
+)";
 
 ShaderSystem::ShaderSystem() {
   glGenBuffers(1, &vertex_buffer);
@@ -80,6 +83,8 @@ int ShaderSystem::Draw(int width, int height, float time) {
   return 0;
 }
 
+Shader::Shader(GLuint shader) { this->shader = shader; }
+void Shader::SetSource(std::string source) { this->SetSource(source.c_str()); }
 void Shader::SetSource(const char *source) {
   glShaderSource(shader, 1, &source, NULL);
 }
