@@ -2,7 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <fmt/core.h>
 
-#include "systems/window-system.hpp"
+#include "systems/windowsystem.hpp"
 
 void error_callback(int error_code, const char *description) {
   fmt::print("[ERROR - {}] {}\n", error_code, description);

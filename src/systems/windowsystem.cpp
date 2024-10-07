@@ -1,4 +1,4 @@
-#include "window-system.hpp"
+#include "windowsystem.hpp"
 
 WindowSystem::WindowSystem(GLFWwindow *window,
                            class ShaderSystem shaderSystem) {
