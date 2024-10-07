@@ -1,3 +1,6 @@
+#ifndef SHADERSYSTEM_HPP
+#define SHADERSYSTEM_HPP
+
 #include <GL/glew.h>
 #include <linmath.h>
 
@@ -14,3 +17,5 @@ public:
   int Draw(int width, int height, float time);
   GLuint *CreateBuffer();
 };
+
+#endif // SHADERSYSTEM_HPP
