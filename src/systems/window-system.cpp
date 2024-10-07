@@ -1,11 +1,12 @@
-#include "program.hpp"
+#include "window-system.hpp"
 
-Program::Program(GLFWwindow *window, class ShaderSystem shaderSystem) {
+WindowSystem::WindowSystem(GLFWwindow *window,
+                           class ShaderSystem shaderSystem) {
   this->window = window;
   this->shaderSystem = shaderSystem;
 }
 
-int Program::Loop() {
+int WindowSystem::Loop() {
   while (!glfwWindowShouldClose(window)) {
     int width, height;
     glfwGetFramebufferSize(window, &width, &height);

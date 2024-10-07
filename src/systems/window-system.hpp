@@ -1,12 +1,12 @@
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
-#include "systems/shader-system.hpp"
+#include "shader-system.hpp"
 
-class Program {
+class WindowSystem {
   GLFWwindow *window;
   ShaderSystem shaderSystem;
 
 public:
-  Program(GLFWwindow *window, class ShaderSystem shaderSystem);
+  WindowSystem(GLFWwindow *window, class ShaderSystem shaderSystem);
   int Loop();
 };

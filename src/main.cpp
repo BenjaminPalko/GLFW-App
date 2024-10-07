@@ -2,7 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <fmt/core.h>
 
-#include "program.hpp"
+#include "systems/window-system.hpp"
 
 void error_callback(int error_code, const char *description) {
   fmt::print("[ERROR - {}] {}\n", error_code, description);
@@ -54,7 +54,7 @@ int main() {
   }
 
   ShaderSystem shaderSystem = ShaderSystem();
-  Program program = Program(window, shaderSystem);
+  WindowSystem program = WindowSystem(window, shaderSystem);
 
   program.Loop();
 

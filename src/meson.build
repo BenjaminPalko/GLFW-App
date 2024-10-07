@@ -1,2 +1,2 @@
-sources = files('main.cpp', 'program.cpp', 'program.hpp')
+sources = files('main.cpp')
 subdir('systems')
