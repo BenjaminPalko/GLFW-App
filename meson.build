@@ -1,5 +1,7 @@
 project('test', 'cpp')
 
+sources = []
+
 deps = []
 deps += dependency('fmt')
 deps += dependency('glfw3')

@@ -82,13 +82,3 @@ int ShaderSystem::Draw(int width, int height, float time) {
   glDrawArrays(GL_TRIANGLES, 0, 3);
   return 0;
 }
-
-Shader::Shader(GLuint shader) { this->shader = shader; }
-void Shader::SetSource(std::string source) { this->SetSource(source.c_str()); }
-void Shader::SetSource(const char *source) {
-  glShaderSource(shader, 1, &source, NULL);
-}
-void Shader::Compile() { glCompileShader(shader); }
-void Shader::Attach(GLuint program) { glAttachShader(program, shader); }
-VertexShader::VertexShader() : Shader(glCreateShader(GL_VERTEX_SHADER)) {}
-FragmentShader::FragmentShader() : Shader(glCreateShader(GL_FRAGMENT_SHADER)) {}
