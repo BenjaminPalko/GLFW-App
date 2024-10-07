@@ -1,5 +1,4 @@
 #include "program.hpp"
-#include <GLFW/glfw3.h>
 
 Program::Program(GLFWwindow *window, class ShaderSystem shaderSystem) {
   this->window = window;
