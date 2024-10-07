@@ -1,6 +1,5 @@
 #include <GL/glew.h>
 #include <linmath.h>
-#include "../components/shader.hpp"
 
 class ShaderSystem {
   GLuint vertex_buffer;
