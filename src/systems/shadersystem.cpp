@@ -1,4 +1,6 @@
 #include "shadersystem.hpp"
+#include <string>
+#include <src/components/shader.hpp>
 
 typedef struct Vertex {
   vec2 pos;
