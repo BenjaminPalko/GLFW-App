@@ -5,7 +5,6 @@
 #include <unordered_map>
 #include <memory>
 #include "entity.hpp"
-#include "component.hpp"
 
 class IComponentArray {
 public:
