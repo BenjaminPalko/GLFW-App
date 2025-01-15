@@ -1,4 +1,4 @@
-# Wayland Application
+I'm messing around with GLFW to build an OpenGL app in wayland, theoretically this is the starting point for a game engine.
 
 ### Setup
 
